@@ -1,8 +1,2 @@
-import './style.css'
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    
-  </div>
-`
+import './css/style.css'
 
