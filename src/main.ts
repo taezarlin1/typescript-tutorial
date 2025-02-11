@@ -1,28 +1,36 @@
-const menu = [
-    { name: "Margheriata", price: 8},
-    { name: "Pepperoni", price: 10},
-    { name: "Hawaiian", price: 10},
-    { name: "Veggie", price: 9},
-]
-
-let cashInRegister = 100;
-let nextOrderId = 1;
-const orderQueue = [];
-
-function addNewPizza(pizzaObj){
-    menu.push(pizzaObj)
+type Food = string
+type Address = {
+    street: string
+    city: string
+    country: string
 }
 
-function placeOrder(pizzaName){
-    const selectedPizza = menu.find(pizzaObj=>pizzaObj.name === pizzaName)
-    cashInRegister += selectedPizza?.price
-    const newOrder = { id: nextOrderId++, pizza: selectedPizza, status: "ordered"}
-    orderQueue.push(newOrder)
-    return newOrder
+let favoriteFood: Food = "pizza"
+
+type Person = {
+    name: string
+    age: number
+    isStudent: boolean
+    address?: Address
 }
 
-function completeOrder(orderId){
-    const order = orderQueue.find(order => order.id === orderId)
-    order.status = "completed"
-    return order
+let person1: Person = {
+    name: "Joe",
+    age: 43,
+    isStudent: true,
+    
+}
+
+let person2: Person = {
+    name: "Jill",
+    age: 65,
+    isStudent: false
+}
+
+let people: Array<Person> = [person1, person2]
+
+
+
+function displayInfo(person: Person){
+    console.log(`${person. name} lives in ${person.address?.city}`);
 }
